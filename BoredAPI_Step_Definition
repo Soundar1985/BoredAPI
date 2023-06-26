@@ -1,0 +1,37 @@
+sing NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TechTalk.SpecFlow;
+
+namespace BoredAPI.Steps
+{
+    [Binding]
+
+  public class BoredAPI_Step_Definition : BaseStep
+    {
+
+      Step_Definition()
+      {
+        BoredAPIPages = new BoredAPI();
+      }
+      
+      [Given(@"Navigate to BoredAPI")]
+        public void NavigatetoBoredAPI()
+        {
+            BoredAPIPages.NavigateToapp();
+        }
+
+         [When(@"Enter the activityType and participants to generate the activity")]
+        public void EntertheactivityTypeandparticipantstogeneratetheactivity(Table table)
+        {
+            dynamic data = table.CreateDynamicInstance();
+            
+        }
+
+        [Then(@"Verify the test results")]
+        public void Verifythetestresults()
+        {
+            BoredAPIPages.VerifyResults();
+        }
+        
