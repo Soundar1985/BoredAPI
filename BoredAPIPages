@@ -1,0 +1,36 @@
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
+
+namespace Mphasis-BoredAPI.Pages
+{
+    public class BoredAPIPages : BasePage
+
+    {
+
+      IWebElement Quarybox = driver.findElement(By.Marked("text"));
+      IWebElement Btn_Submit = driver.findElement(By.Id("Submit"));
+      IWebElement Verift_text = driver.findElement(By.Class("well"));
+
+
+      public void NavigateToApp()
+      {
+          IWebDriver  driver = new ChromeDriver(@”D:\Download\chromedriver”); 
+          driver.Navigate().GoToUrl(“https://www.boredapi.com/”);
+      }
+
+      public void GenerateActivity(string Query)
+      {
+          Quarybox.Clear();
+          Quarybox.SendKeys(Query);
+          Btn_Submit.Click();          
+      }
+
+      public void verifyresults()
+      {
+          string validate = Verify_text.getText();
+      }
