@@ -19,19 +19,20 @@ namespace BoredAPI.Steps
       [Given(@"Navigate to BoredAPI")]
         public void NavigatetoBoredAPI()
         {
-            BoredAPIPages.NavigateToapp();
+            BoredAPIPages.NavigateToApp();
         }
 
          [When(@"Enter the activityType and participants to generate the activity")]
         public void EntertheactivityTypeandparticipantstogeneratetheactivity(Table table)
         {
             dynamic data = table.CreateDynamicInstance();
+            BoredAPIPages.GenerateActivity(data.Query);
             
         }
 
         [Then(@"Verify the test results")]
         public void Verifythetestresults()
         {
-            BoredAPIPages.VerifyResults();
+            BoredAPIPages.verifyresults();
         }
         
